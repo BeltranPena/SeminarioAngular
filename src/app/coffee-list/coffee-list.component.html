@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Tamaño</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Compra</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let coffee of coffees" [ngClass]="{'descuento':coffee.descuento}">
+            <td><img width="75px" height="75px" [src]="coffee.image"></td>
+            <td>{{coffee.name}}</td>
+            <td>{{coffee.size}}</td>
+            <td>{{coffee.price | currency}}</td>
+            <td><span *ngIf="coffee.stock==0">Sin Stock</span></td>
+            <app-input-cantidad [(quantity)]="coffee.quantity" [max]="coffee.stock" *ngIf="coffee.stock"></app-input-cantidad>
+            <td><button class="compra" *ngIf="coffee.stock" (click)="alChanguito(coffee)">Comprar</button></td>
+        </tr>
+    </tbody>
+</table>

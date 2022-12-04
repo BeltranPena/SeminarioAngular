@@ -1,0 +1,14 @@
+h3{
+    text-decoration: underline;
+}
+
+li{
+    list-style-type: none;
+}
+
+.compra{
+    background-color: #4e2424;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+}

@@ -1,0 +1,20 @@
+<h3>Shopping Cart</h3>
+<!-- <ul>
+  <li *ngFor="let coffee of (changuito$ | async)">
+    <img width="75px" height="75px" [src]="coffee.image"> {{coffee.quantity}} {{coffee.name}}: ${{coffee.price * coffee.quantity}}
+  </li>
+</ul> -->
+
+<table class="table">
+    <tbody>
+      <tr *ngFor="let coffee of (changuito$ | async)">
+          <td><img width="75px" height="75px" [src]="coffee.image"></td>
+          <td>{{coffee.quantity}}</td>
+          <td>{{coffee.name}}</td>
+          <td>${{coffee.price * coffee.quantity}}</td>
+      </tr>
+      <tr *ngIf="(changuito$ | async)?.length!==0">
+          <td><button [routerLink]="['/confirmacion']" class="btn compra">Compra</button></td>
+      </tr>
+    </tbody>
+</table>

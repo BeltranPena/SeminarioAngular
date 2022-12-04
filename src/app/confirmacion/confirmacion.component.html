@@ -1,0 +1,11 @@
+<table class="table">
+    <tbody>
+      <tr *ngFor="let coffee of (changuito$ | async)">
+          <td><img width="75px" height="75px" [src]="coffee.image"></td>
+          <td>{{coffee.quantity}}</td>
+          <td>{{coffee.name}}</td>
+          <td>${{coffee.price * coffee.quantity}}</td>
+      </tr>
+    </tbody>
+    <button *ngIf="(changuito$ | async)?.length!== 0" class="btn compra" onclick="alert('Su compra fue realizada con Exito'); location.reload();">Confirmar</button>
+</table>
